@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 
 """
-Script Name: GUI_Optimaization_of_any_sorting_algorithm.py
+Script Name: Buble_Short_Algorithm_Optimaization
 Author: Apostolos Tapsas
 Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
 
