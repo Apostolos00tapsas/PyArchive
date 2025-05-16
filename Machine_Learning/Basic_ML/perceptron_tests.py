@@ -2,8 +2,27 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn import datasets
 import matplotlib.pyplot as plt
-
 from perceptron import Perceptron
+
+"""
+Script Name: perseptron_tests.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the Perseptron model for machine learning application or dimenction dedaction.
+
+Parameters:
+    learning_rate (float): Number of learning rate.
+    n_iters         (int): Number of iterations.   
+    
+Returns:
+    p: The perseptron model.
+
+Example:
+    p = Perceptron(learning_rate=0.01, n_iters=1000)
+    p.fit(X_train, y_train)
+"""
 
 
 def accuracy(y_true, y_pred):

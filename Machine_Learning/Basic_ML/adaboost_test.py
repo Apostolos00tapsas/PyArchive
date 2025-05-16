@@ -1,8 +1,27 @@
 import numpy as np
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
-
 from adaboost import Adaboost
+
+"""
+Script Name: adaboost_test.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the adaboost model for machine learning application.
+
+Parameters:
+    n_clf (int): Number of classifiers.
+
+Returns:
+    clf: The adaboost model.
+
+Example:
+    clf = Adaboost(n_clf=5)
+    clf.fit(X_train, y_train)
+"""
+
 
 def accuracy(y_true, y_pred):
     accuracy = np.sum(y_true == y_pred) / len(y_true)

@@ -2,6 +2,19 @@ import numpy as np
 from collections import Counter
 
 
+"""
+Script Name: knn_tests.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the k nearest naybor class.
+
+WIP:
+    Implementation of more ways to calculate the distance.
+    
+"""
+
 def euclidean_distance(x1, x2):
         return np.sqrt(np.sum((x1 - x2)**2))
 

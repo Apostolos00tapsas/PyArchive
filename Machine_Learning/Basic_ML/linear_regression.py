@@ -1,5 +1,15 @@
 import numpy as np
 
+"""
+Script Name: linear_regression.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the linear_regression class.
+
+"""
+
 class LinearRegression:
 
     def __init__(self, learning_rate=0.001, n_iters=1000):

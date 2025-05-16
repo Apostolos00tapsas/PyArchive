@@ -9,8 +9,28 @@ data = datasets.load_iris()
 X = data.data
 y = data.target
 
+"""
+Script Name: pca_tests.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the Principal Componenets Analisys for machine learning application or dimenction dedaction.
+
+Parameters:
+    n_com (int): Number of components    
+    
+Returns:
+    PCA: The bayesian model.
+
+Example:
+    pca = PCA(com)
+    pca.fit(X_train, y_train)
+"""
+
 # Project the data onto the 2 primary principal components
-pca = PCA(2)
+n_com = 2
+pca = PCA(n_com)
 pca.fit(X)
 X_projected = pca.transform(X)
 

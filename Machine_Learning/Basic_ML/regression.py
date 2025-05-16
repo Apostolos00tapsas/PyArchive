@@ -1,6 +1,14 @@
 import numpy as np
 
+"""
+Script Name: regression.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
 
+Description:
+    Implements the Base Regretion class.
+
+"""
 class BaseRegression:
     
     def __init__(self, learning_rate=0.001, n_iters=1000):

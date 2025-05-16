@@ -1,6 +1,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+"""
+Script Name: kmeans.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the class.
+"""
+
+
 np.random.seed(42)
 
 def euclidean_distance(x1, x2):

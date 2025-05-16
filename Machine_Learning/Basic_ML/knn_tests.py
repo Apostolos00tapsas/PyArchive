@@ -4,8 +4,26 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 cmap = ListedColormap(['#FF0000', '#00FF00', '#0000FF'])
-
 from knn import KNN
+
+"""
+Script Name: knn_tests.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the k nearest naybor model for machine learning application.
+
+Parameters:
+    K (int): Number of nearst naybors.
+
+Returns:
+    clf: The knn model.
+
+Example:
+    clf = KNN(k=k)
+    clf.fit(X_train, y_train)
+"""
 
 def accuracy(y_true, y_pred):
     accuracy = np.sum(y_true == y_pred) / len(y_true)

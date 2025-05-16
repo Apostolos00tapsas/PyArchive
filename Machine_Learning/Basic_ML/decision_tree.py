@@ -1,6 +1,15 @@
 import numpy as np
 from collections import Counter
 
+"""
+Script Name: decision_tree.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the decition tree class.
+
+"""
 
 def entropy(y):
     hist = np.bincount(y)

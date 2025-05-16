@@ -1,5 +1,15 @@
 import numpy as np
 
+"""
+Script Name: naivebayes.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the bayes model class.
+
+"""
+
 class NaiveBayes:
 
     def fit(self, X, y):

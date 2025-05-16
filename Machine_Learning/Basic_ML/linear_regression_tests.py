@@ -2,9 +2,27 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn import datasets
 import matplotlib.pyplot as plt
-
 from linear_regression import LinearRegression
 #from regression import LinearRegression
+
+"""
+Script Name: linear_regression_tests.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the linear_regression model for machine learning application.
+
+Parameters:
+    learning_rate (float): Number of learning rate.
+    n_iters         (int): Number of iterations.
+Returns:
+    regressor: The regration model.
+
+Example:
+    regressor = LinearRegression(learning_rate=0.01, n_iters=1000)
+    regressor.fit(X_train, y_train)
+"""
 
 def mean_squared_error(y_true, y_pred):
     return np.mean((y_true - y_pred)**2)

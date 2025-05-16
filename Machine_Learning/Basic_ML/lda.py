@@ -1,5 +1,15 @@
 import numpy as np
 
+"""
+Script Name: lda.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the lda class.
+
+"""
+
 class LDA:
 
     def __init__(self, n_components):

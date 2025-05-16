@@ -1,5 +1,14 @@
 import numpy as np
 
+"""
+Script Name: pca_tests.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements the Principal Componenets Analisys class.
+
+"""
 class PCA:
 
     def __init__(self, n_components):

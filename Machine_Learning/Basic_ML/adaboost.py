@@ -1,5 +1,14 @@
 import numpy as np
 
+"""
+Script Name: adaboost.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implementation of adaboost class.
+"""
+
 # Decision stump used as weak classifier
 class DecisionStump():
     def __init__(self):
