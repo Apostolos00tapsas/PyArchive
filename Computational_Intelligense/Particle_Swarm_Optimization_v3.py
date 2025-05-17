@@ -2,6 +2,24 @@ import numpy as np
 import random as rand
 import matplotlib.pyplot as plt
 
+"""
+Script Name: Particle_Swarm_Optimization_v3.py
+Author: Apostolos Tapsas
+Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
+
+Description:
+    Implements particle swarm optimization algorith.
+
+Parameters:
+     
+    
+Returns:
+    
+
+Example:
+    main()
+"""
+
 def main():
     #Variables
     n = 40
