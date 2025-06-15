@@ -47,4 +47,5 @@ def balloon_tip(title, msg):
     w=WindowsBalloonTip(title, msg)
 
 if __name__ == '__main__':
-    balloon_tip("Datadoc Info", "Andreas")
+    message_text = "This is a Windows pop up message"
+    balloon_tip("Datadoc Info", message_text)

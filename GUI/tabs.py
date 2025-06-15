@@ -376,16 +376,12 @@ class tabs:
         self.app.mainloop()
 
 
-    def about_us(self):
-        webbrowser.open('https://heartbit.gr')
-
     # Function Change_Color is responsible to change color depenting depending on user's option.
     def Change_Color(self):
         self.clr = askcolor()
         self.s.configure('My.TFrame', background=self.clr[1])
 
     def show_app(self):
-        import tkinter.messagebox
         messagebox.showinfo("Info","This Module is Under Construction")
 
    
