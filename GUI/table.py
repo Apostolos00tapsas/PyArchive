@@ -10,8 +10,8 @@ class data_input:
         self.counter = 0
         self.frame=Canvas(self.root)
         self.frame.grid(row=0,column=0)
-        for self.row in xrange(self.tableheight):
-            for self.column in xrange(self.tablewidth):
+        for self.row in range(self.tableheight):
+            for self.column in range(self.tablewidth):
                 self.entries[self.counter] = Entry(self.frame, width=15)
                 self.entries[self.counter].grid(row=self.row, column=self.column)
         self.counter += 1
@@ -27,8 +27,8 @@ class data_input:
         self.root.mainloop()
 
     def new_row(self,event=None):
-       for self.row in xrange(self.tableheight):
-            for self.column in xrange(self.tablewidth):
+       for self.row in range(self.tableheight):
+            for self.column in range(self.tablewidth):
                 self.entries[self.counter] = Entry(self.frame, width=15)
                 self.entries[self.counter].grid(row=self.row+self.counter , column=self.column)
        self.counter +=1
