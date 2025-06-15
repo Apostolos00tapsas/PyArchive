@@ -15,7 +15,7 @@ from tkinter import *
 from PIL import ImageTk
 from tkinter import messagebox
 from tkinter import ttk
-from tkColorChooser import askcolor
+from tkinter.colorchooser import askcolor
 import os
 
 
@@ -42,13 +42,13 @@ class tabs:
         # Put First and Second frames background color
         style = ttk.Style(self.app)
         style.configure('lefttab.TNotebook', tabposition='wn', background='#5c94c5')
-        self.s = Style()
+        self.s = ttk.Style()
         self.s.configure('My.TFrame', background='white')
 
 
 
         # Fit the selection buttons on application's right site 
-        self.note = Notebook(self.app, style='lefttab.TNotebook')
+        self.note = ttk.Notebook(self.app, style='lefttab.TNotebook')
 
 
         # Create the two buttons will fit in the right site
@@ -385,7 +385,8 @@ class tabs:
         self.s.configure('My.TFrame', background=self.clr[1])
 
     def show_app(self):
-        tkMessageBox.showinfo("Info","This Module is Under Construction")
+        import tkinter.messagebox
+        messagebox.showinfo("Info","This Module is Under Construction")
 
    
 
