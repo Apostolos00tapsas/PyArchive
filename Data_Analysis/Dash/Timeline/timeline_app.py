@@ -2,34 +2,6 @@ from dash import Dash, html, dcc, callback, Output, Input
 from dash.dependencies import ALL
 import dash_bootstrap_components as dbc
 
-
-
-"""
-Script Name: timeline_app.py
-Author: Apostolos Tapsas
-Copyright: © 2024 Apostolos Tapsas (https://github.com/Apostolos00tapsas)
-
-Description:
-    Implements a time line on Dash library.
-
-Parameters:
-    debug (bool): Debug mode on(True) or off(False). 
-    
-Returns:
-    
-
-Example:
-     app.run(debug=True)
-
-
-Notes:
-    install dash pip install dash.
-    install dash dash-bootstrap-components like pip install dash dash-bootstrap-components.
-    execute the file and open broswer and type http://127.0.0.1:8050/ for the ourcome.
-   
-
-"""
-
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 events = [
@@ -59,10 +31,29 @@ filters = [
     {"label": "Ολοκληρωμένα", "value": "done"},
 ]
 
+# Βρίσκουμε μοναδικές χρονιές από τα δεδομένα
+def extract_year(date_str):
+    # date_str πχ "03/22" ή "2025" ή "06/27"
+    if "/" in date_str:
+        # πχ "03/22" -> 2022
+        parts = date_str.split("/")
+        year = parts[1]
+        if len(year) == 2:
+            year_full = "20" + year
+            return year_full
+        return year
+    else:
+        # πχ "2025"
+        return date_str
+
+years = sorted(set(extract_year(e["date"]) for e in events))
+years_options = [{"label": y, "value": y} for y in years]
+years_options.insert(0, {"label": "Όλα", "value": "all"})
+
 app.layout = html.Div(
     [
         html.H1("📆 Timeline 2022–2032", style={"textAlign": "center", "marginBottom": "30px"}),
-        # Φίλτρα
+        # Φίλτρα κατηγορίας
         html.Div(
             [
                 dbc.Button(
@@ -75,7 +66,17 @@ app.layout = html.Div(
                 )
                 for f in filters
             ],
-            style={"textAlign": "center", "marginBottom": "50px"},
+            style={"textAlign": "center", "marginBottom": "20px"},
+        ),
+        # Φίλτρο χρονιάς
+        html.Div(
+            dcc.Dropdown(
+                id="year-filter",
+                options=years_options,
+                value="all",
+                clearable=False,
+                style={"width": "200px", "margin": "auto", "marginBottom": "50px"},
+            )
         ),
         # Timeline container
         html.Div(
@@ -86,17 +87,16 @@ app.layout = html.Div(
                 "borderTop": "4px solid #ccc",
                 "display": "flex",
                 "justifyContent": "space-between",
-                "minWidth": "900px",  # Αύξηση ελάχιστου πλάτους
-                "overflowX": "auto",  # Για να έχει οριζόντια κύλιση αν χρειαστεί
+                "minWidth": "900px",
+                "overflowX": "auto",
             },
         ),
-        # Για αποθήκευση ενεργού φίλτρου
         dcc.Store(id="active-filter", data="all"),
-        # Interval για animation αργά
         dcc.Interval(id="interval", interval=200, n_intervals=0, max_intervals=len(events)),
     ],
     style={"maxWidth": "1200px", "margin": "auto", "fontFamily": "Arial, sans-serif"},
 )
+
 
 @callback(
     Output("active-filter", "data"),
@@ -113,26 +113,31 @@ def update_filter(n_clicks_list):
         filter_value = eval(button_id)["index"]
         return filter_value
 
+
 @callback(
     Output("timeline-container", "children"),
-    [Input("active-filter", "data"), Input("interval", "n_intervals")],
+    [Input("active-filter", "data"), Input("year-filter", "value"), Input("interval", "n_intervals")],
 )
-def update_timeline(active_filter, n_intervals):
+def update_timeline(active_filter, year_filter, n_intervals):
+    # Φιλτράρισμα κατηγορίας
     if active_filter == "all":
         filtered = events
     else:
         filtered = [e for e in events if e["category"] == active_filter]
 
+    # Φιλτράρισμα χρονιάς
+    if year_filter != "all":
+        filtered = [e for e in filtered if extract_year(e["date"]) == year_filter]
+
     visible_events = filtered[: n_intervals + 1]
 
     items = []
-    width_percent = max(150, int(900 / len(filtered))) if filtered else 150
 
     for idx, event in enumerate(filtered):
         is_visible = idx < len(visible_events)
         is_top = idx % 2 == 0
         style = {
-            "minWidth": "150px",   # Σταθερό ελάχιστο πλάτος
+            "minWidth": "150px",
             "maxWidth": "180px",
             "position": "relative",
             "display": "flex",
